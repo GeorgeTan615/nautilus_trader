@@ -271,6 +271,7 @@ Examples:
 - `xyz:GOLD-USD-PERP` - Gold perp on trade.xyz
 - `flx:NVDA-USD-PERP` - Nvidia perp on Felix
 - `vntl:SPACEX-USD-PERP` - SpaceX perp on Ventuals
+- `para:AVGO-USD-PERP` - Broadcom perp on Paragon
 
 To subscribe in your strategy:
 
@@ -816,7 +817,7 @@ self.subscribe_data(
 ```
 
 The `dex` value is a venue-defined builder dex identifier from `perpDexs`, such as `xyz`, `flx`,
-or `vntl`. Omit the key (or pass an empty string) for the default perp dex.
+`vntl`, or `para`. Omit the key (or pass an empty string) for the default perp dex.
 
 `HyperliquidOpenInterest` carries the latest open interest for one
 perpetual instrument. Subscribe with the canonical Nautilus `instrument_id`
@@ -1002,8 +1003,8 @@ catalog.
 
 The adapter does not invent `dex` values. It bootstraps the ordered dex universe from Hyperliquid `meta` /
 `allPerpMetas` and resolves builder dex identifiers from the live `perpDexs` info endpoint. The empty string
-`""` represents Hyperliquid's default perp dex. Non-empty values such as `xyz`, `flx`, or `vntl` are
-venue-defined builder dex identifiers.
+`""` represents Hyperliquid's default perp dex. Non-empty values such as `xyz`, `flx`, `vntl`, or `para`
+are venue-defined builder dex identifiers.
 
 The mapping is rebuilt from cached instruments at connect, on every instrument refresh, and on every
 instrument request. The feed is positional (no per-entry coin name). Thus, later-listed perps appear after the
